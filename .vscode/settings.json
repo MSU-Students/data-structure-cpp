@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "config": "ssh_config",
+    "iostream": "cpp"
+  }
+}
