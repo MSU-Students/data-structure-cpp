@@ -9,7 +9,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/primer.exe",
+      "program": "${workspaceFolder}/OOD.exe",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
