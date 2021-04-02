@@ -12,9 +12,10 @@ class COperation {
   double fOperand;
 };
 class CCalculator {
-  double m_fResult;
   COperation  *m_pHistory;
   int m_nCapacity, m_nSize;
+protected:
+  double m_fResult;
   void saveOperation(CalcOper op, double operand);
 public:
   CCalculator();
