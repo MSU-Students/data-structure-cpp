@@ -26,3 +26,21 @@ void COpHistory::printHistory() {
   }
 
 }
+
+bool COpHistory::getLast(PCOperation &pItem){
+  if (m_nSize > 0) {
+    PCOperation pLastItem = m_pHistory[m_nSize-1];
+    pItem = pLastItem;
+    return true;
+  }
+  return false;
+}
+
+void COpHistory::removeLast()
+{
+  if (m_nSize > 0) {
+    PCOperation pLastItem = m_pHistory[m_nSize-1];
+    delete pLastItem;
+    m_nSize--;
+  }
+}

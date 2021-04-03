@@ -2,6 +2,17 @@
   "files.associations": {
     "config": "ssh_config",
     "iostream": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "iosfwd": "cpp",
+    "istream": "cpp",
+    "string": "cpp",
+    "type_traits": "cpp",
+    "xiosbase": "cpp",
+    "xlocale": "cpp",
+    "xlocinfo": "cpp",
+    "xlocnum": "cpp",
+    "xmemory0": "cpp",
+    "xstring": "cpp",
+    "xutility": "cpp"
   }
 }

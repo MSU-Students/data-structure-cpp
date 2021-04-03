@@ -11,7 +11,7 @@ int main()
     pCalc->subtract(6); //-1
     pCalc->multiply(2); //-2
     pCalc->divide(3);   //-0.66
-    
+    pCalc->undo();
     pCalc->printHistory();
 
     delete pCalc;

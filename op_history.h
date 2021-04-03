@@ -16,6 +16,8 @@ class COpHistory {
     ~COpHistory();
     void insert(char op, double operand);
     void printHistory();
+    bool getLast(PCOperation &item);
+    void removeLast();
 };
 
 #endif
