@@ -27,6 +27,7 @@ void COpHistory::insert(char op, double operand)
     PCOperation pLastItem;
     getLast(pLastItem);
     pLastItem->m_pNext = newItem;
+    newItem->m_pPrev = pLastItem;
   }
 }
 void COpHistory::printHistory()

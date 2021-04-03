@@ -8,6 +8,7 @@ class COperation {
   char op = 0;
   double fOperand = 0;
   PCOperation m_pNext = 0;
+  PCOperation m_pPrev = 0;
 };
 
 class COpHistory {
