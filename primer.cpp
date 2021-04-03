@@ -13,6 +13,7 @@ int main()
     pCalc->divide(3);   //-0.66
     
     pCalc->printHistory();
- 
+
+    delete pCalc;
 
 }

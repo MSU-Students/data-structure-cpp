@@ -9,10 +9,15 @@ CCalculator::CCalculator() {
 }
 
 CCalculator::~CCalculator() {
+  for (int nIndex = 0; nIndex < m_nSize; nIndex++) {
+    PCOperation pItem = m_pHistory[nIndex];
+    delete pItem;
+  }
   delete [] m_pHistory;
 }
 
 void CCalculator::saveOperation(char op, double operand) {
+  //insert tayo
   m_pHistory[m_nSize] = new COperation();
   m_pHistory[m_nSize]->fOperand = operand;
   m_pHistory[m_nSize]->op = op;
