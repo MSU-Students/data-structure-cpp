@@ -5,6 +5,7 @@ using namespace std;
 COpHistory::COpHistory()
 {
   m_pHead = NULL;
+  m_pTail = NULL;
 }
 COpHistory::~COpHistory()
 {
@@ -29,6 +30,7 @@ void COpHistory::insert(char op, double operand)
     pLastItem->m_pNext = newItem;
     newItem->m_pPrev = pLastItem;
   }
+  m_pTail = newItem;
 }
 void COpHistory::printHistory()
 {
@@ -41,14 +43,9 @@ void COpHistory::printHistory()
 }
 
 bool COpHistory::getLast(PCOperation &pItem)
-{
-  PCOperation pCursor = m_pHead;
-  while (pCursor != NULL && pCursor->m_pNext != NULL)
-  {
-    pCursor = pCursor->m_pNext;
-  }
-  pItem = pCursor;
-  return pCursor != NULL;
+{  
+  pItem = m_pTail;
+  return m_pTail != NULL;
 }
 
 void COpHistory::removeLast()
@@ -59,9 +56,11 @@ void COpHistory::removeLast()
      if (pPrevious) {
        pPrevious->m_pNext = NULL;
        delete pLastItem;
+       m_pTail = pPrevious;
      } else {
        delete pLastItem;
        m_pHead = NULL;
+       m_pTail = NULL;
      }
   }  
 }

@@ -12,7 +12,7 @@ class COperation {
 };
 
 class COpHistory {
-  PCOperation m_pHead;
+  PCOperation m_pHead, m_pTail;
 
   public: 
     COpHistory();
