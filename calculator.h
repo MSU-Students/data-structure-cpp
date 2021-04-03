@@ -1,23 +1,16 @@
 #ifndef CALC_H
 #define CALC_H
+#include "op_history.h"
 enum CalcOper {
   addOp = '+',
   subOp = '-',
   mulOp = '*',
   divOp = '/'
 };
-class COperation {
-  public:
-  char op;
-  double fOperand;
-};
-typedef COperation  * PCOperation;
-class CCalculator {
-  PCOperation *m_pHistory;
-  int m_nCapacity, m_nSize;
+
+class CCalculator: public COpHistory  {
 protected:
   double m_fResult;
-  void saveOperation(char op, double operand);
 public:
   CCalculator();
   ~CCalculator();
@@ -25,7 +18,6 @@ public:
   void subtract(const double &a);
   void multiply(const double &a);
   void divide(const double &a);
-  void printHistory();
 };
 
 
