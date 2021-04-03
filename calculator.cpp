@@ -5,16 +5,17 @@ CCalculator::CCalculator() {
   m_fResult = 0;
   m_nCapacity = 10;
   m_nSize = 0;
-  m_pHistory = new COperation[m_nCapacity];
+  m_pHistory = new PCOperation[m_nCapacity];
 }
 
 CCalculator::~CCalculator() {
   delete [] m_pHistory;
 }
 
-void CCalculator::saveOperation(CalcOper op, double operand) {
-  m_pHistory[m_nSize].fOperand = operand;
-  m_pHistory[m_nSize].op = op;
+void CCalculator::saveOperation(char op, double operand) {
+  m_pHistory[m_nSize] = new COperation();
+  m_pHistory[m_nSize]->fOperand = operand;
+  m_pHistory[m_nSize]->op = op;
   m_nSize++;
 }
 void CCalculator::add(const double &a) {
@@ -39,7 +40,7 @@ void CCalculator::divide(const double &a) {
 }
 void CCalculator::printHistory() {
   for (int n= 0; n < m_nSize; n++) {
-    cout << (char)m_pHistory[n].op << " " << m_pHistory[n].fOperand << endl; 
+    cout << (char)m_pHistory[n]->op << " " << m_pHistory[n]->fOperand << endl; 
   }
 
 }

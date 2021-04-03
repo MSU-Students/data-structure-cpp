@@ -8,15 +8,16 @@ enum CalcOper {
 };
 class COperation {
   public:
-  CalcOper op;
+  char op;
   double fOperand;
 };
+typedef COperation  * PCOperation;
 class CCalculator {
-  COperation  *m_pHistory;
+  PCOperation *m_pHistory;
   int m_nCapacity, m_nSize;
 protected:
   double m_fResult;
-  void saveOperation(CalcOper op, double operand);
+  void saveOperation(char op, double operand);
 public:
   CCalculator();
   ~CCalculator();
