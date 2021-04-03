@@ -1,16 +1,18 @@
 #ifndef OP_HISTORY_H
 #define OP_HISTORY_H
 
+class COperation;
+typedef COperation  * PCOperation;
 class COperation {
   public:
-  char op;
-  double fOperand;
+  char op = 0;
+  double fOperand = 0;
+  PCOperation m_pNext = 0;
 };
-typedef COperation  * PCOperation;
 
 class COpHistory {
-  PCOperation *m_pHistory;
-  int m_nCapacity, m_nSize;
+  PCOperation m_pHead;
+
   public: 
     COpHistory();
     ~COpHistory();
