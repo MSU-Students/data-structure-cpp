@@ -53,20 +53,15 @@ bool COpHistory::getLast(PCOperation &pItem)
 
 void COpHistory::removeLast()
 {
-  PCOperation pPrev = NULL, pCursor = m_pHead;
-  while (pCursor != NULL && pCursor->m_pNext != NULL)
-  {
-    pPrev = pCursor;
-    pCursor = pCursor->m_pNext;
-  }
-  if (pPrev != NULL)
-  {
-    pPrev->m_pNext = NULL;
-    delete pCursor;
-  }
-  else if (pCursor != NULL)
-  { //pCursor == m_pHead
-    m_pHead = NULL;
-    delete pCursor;
-  }
+  PCOperation pLastItem;
+  if (getLast(pLastItem)) {
+     PCOperation pPrevious = pLastItem->m_pPrev;
+     if (pPrevious) {
+       pPrevious->m_pNext = NULL;
+       delete pLastItem;
+     } else {
+       delete pLastItem;
+       m_pHead = NULL;
+     }
+  }  
 }
